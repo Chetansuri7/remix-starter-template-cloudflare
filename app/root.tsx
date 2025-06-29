@@ -6,6 +6,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/cloudflare";
+import { AppBarProvider } from "./contexts/AppBarContext";
 
 import "./tailwind.css";
 
@@ -32,7 +33,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <AppBarProvider>
+          {children}
+        </AppBarProvider>
         <ScrollRestoration />
         <Scripts />
       </body>

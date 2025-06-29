@@ -1,0 +1,1 @@
+export const AI_CHAT_URL = "https://chat.krivilak.com";

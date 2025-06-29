@@ -17,8 +17,8 @@ export function CTA() {
           <p className="text-lg text-muted-foreground mb-4 max-w-xl">
             Sign up once. No more switching accounts or losing context. Get started in less than 60 seconds with total privacy.
           </p>
-          <Button size="lg" className="px-10 py-5 text-lg">
-            Get Started Free
+          <Button asChild size="lg" className="px-10 py-5 text-lg">
+            <a href="https://chat.krivilak.com" target="_blank" rel="noopener noreferrer">Get Started Free</a>
           </Button>
         </div>
       </div>

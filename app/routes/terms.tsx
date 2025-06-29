@@ -1,10 +1,18 @@
-import { Header } from "~/components/layout/Header";
+import { useEffect } from "react";
+import { AppBar } from "~/components/layout/AppBar";
 import { Footer } from "~/components/layout/Footer";
+import { useAppBarContext } from "~/contexts/AppBarContext";
 
 export default function Terms() {
+  const { setNavMode } = useAppBarContext();
+
+  useEffect(() => {
+    setNavMode('page');
+  }, [setNavMode]);
+
   return (
     <>
-      <Header />
+      <AppBar />
       <main className="min-h-[60vh] py-14 px-4 md:px-0 max-w-2xl mx-auto">
         <h1 className="text-3xl font-bold mb-8">Terms and Conditions</h1>
         <div className="text-base leading-relaxed space-y-5">

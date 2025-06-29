@@ -2,42 +2,6 @@ import React from "react";
 import { Button } from "../ui/button";
 import { Section } from "../shared/Section";
 
-/* Provider icons - simple, less images */
-function IconChatGPT() {
-  return (
-    <svg viewBox="0 0 32 32" fill="none" className="w-8 h-8 mx-2 text-primary" aria-label="ChatGPT">
-      <circle cx="16" cy="16" r="15" fill="currentColor" opacity="0.14"/>
-      <path d="M20.1,11c-0.37-0.91-1.19-1.51-2.15-1.51h-0.03c-0.16-0.8-0.87-1.41-1.72-1.41c-0.25,0-0.5,0.05-0.72,0.14
-    c-0.51-0.58-1.33-0.77-2.04-0.46c-0.72,0.3-1.16,1.04-1.01,1.81c-0.64,0.31-1.06,0.99-0.91,1.73c0.16,0.73,0.8,1.23,1.54,1.19
-    c0.35,0.5,1.05,0.62,1.53,0.28c0.13-0.08,0.25-0.19,0.35-0.32c0.49,0.25,1.1,0.11,1.42-0.31c0.18-0.23,0.27-0.52,0.26-0.82
-    c0.53-0.01,1-0.35,1.13-0.84C19.01,11.34,19.61,11.16,20.1,11z" fill="currentColor" />
-    </svg>
-  );
-}
-function IconClaude() {
-  return (
-    <svg viewBox="0 0 32 32" fill="none" className="w-8 h-8 mx-2 text-purple-500" aria-label="Claude">
-      <rect x="4" y="10" width="24" height="12" rx="6" fill="currentColor" opacity="0.18"/>
-      <circle cx="16" cy="16" r="6" fill="currentColor"/>
-    </svg>
-  );
-}
-function IconGemini() {
-  return (
-    <svg viewBox="0 0 32 32" fill="none" className="w-8 h-8 mx-2 text-sky-500" aria-label="Gemini">
-      <ellipse cx="16" cy="16" rx="14" ry="8" fill="currentColor" opacity="0.09"/>
-      <ellipse cx="16" cy="16" rx="8" ry="14" fill="currentColor"/>
-    </svg>
-  );
-}
-function IconMeta() {
-  return (
-    <svg viewBox="0 0 32 32" fill="none" className="w-8 h-8 mx-2 text-indigo-500" aria-label="Meta">
-      <ellipse cx="16" cy="16" rx="14" ry="8" fill="currentColor" opacity="0.14"/>
-      <path d="M8 24 Q16 0 24 24" stroke="currentColor" strokeWidth="2" fill="none"/>
-    </svg>
-  );
-}
 function IconZap() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-8 h-8 text-pink-500" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="13 2 13 12 21 12 8 22 11 12 3 12 13 2"/></svg>
@@ -52,13 +16,6 @@ function IconUserCheck() {
 function IconLock() {
   return <svg className="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><rect x="6" y="10" width="12" height="10" rx="2"/><path d="M12 16v2m-6-8V8a6 6 0 1 1 12 0v2"/></svg>;
 }
-
-const PROVIDER_ICONS = [
-  <IconChatGPT key="ChatGPT" />,
-  <IconClaude key="Claude" />,
-  <IconGemini key="Gemini" />,
-  <IconMeta key="Meta" />,
-];
 
 const CORE_FEATURES = [
   {
@@ -78,8 +35,8 @@ const CORE_FEATURES = [
   },
   {
     icon: <IconUserCheck />,
-    title: "Invite-Only & Team Ready",
-    desc: "Collaborate securely. Manage access easily.",
+    title: "Seamless Collaboration",
+    desc: "Work together in real time. Empower your whole team.",
   },
 ];
 
@@ -112,18 +69,12 @@ export function Hero() {
               One App. Total Privacy.
             </span>
           </h1>
-          <div className="w-full max-w-3xl mx-auto mb-2">
-            {/* Marquee: provider icons (static row for simplicity) */}
-            <div className="flex items-center gap-3 justify-start md:justify-normal py-1">
-              {PROVIDER_ICONS}
-            </div>
-          </div>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-1">
             Unify ChatGPT, Claude, Gemini, Meta—and automate everything. No extra accounts. No vendor lock. Fast, Modern, Secure. Built for teams and pros.
           </p>
           <div className="flex gap-3 mb-6 hidden md:flex">
             <TrustBadge icon={<IconLock />} label="100% Secure" />
-            <TrustBadge icon={<IconUserCheck />} label="Invite-Only" />
+            <TrustBadge icon={<IconUserCheck />} label="Seamless Collaboration" />
             <TrustBadge icon={<IconShield />} label="Private Data" />
           </div>
           <div className="flex flex-col md:flex-row gap-4 w-full max-w-md">
@@ -153,7 +104,7 @@ export function Hero() {
           {/* Trust badges on mobile */}
           <div className="flex gap-2 mt-6 md:hidden">
             <TrustBadge icon={<IconLock />} label="100% Secure" />
-            <TrustBadge icon={<IconUserCheck />} label="Invite-Only" />
+            <TrustBadge icon={<IconUserCheck />} label="Seamless Collaboration" />
             <TrustBadge icon={<IconShield />} label="Private Data" />
           </div>
         </div>
