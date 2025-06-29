@@ -32,19 +32,32 @@ const FEATURES = [
 
 export function Features() {
   return (
-    <Section id="features" className="text-center">
-      <h2 className="text-3xl font-bold tracking-tight mb-4">Features</h2>
-      <p className="text-muted-foreground mb-12 text-lg">What makes KriviLak AI your chat and automation homebase.</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-        {FEATURES.map((f, i) => (
-          <div key={i} className="flex flex-col items-center text-center gap-3 p-6 rounded-lg border bg-background/50 shadow-sm">
-            <span className="text-primary">
-              {f.icon}
-            </span>
-            <h3 className="font-semibold text-lg">{f.title}</h3>
-            <p className="text-muted-foreground text-sm">{f.desc}</p>
+    <Section
+      id="features"
+      className="flex flex-col items-center text-center"
+      style={{ maxWidth: "90rem" }}
+    >
+      <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+        All AI Models — Unified, Automated, Secure
+      </h2>
+      <p className="text-muted-foreground mb-12 text-lg max-w-2xl">
+        Everything you need in one chat: switch providers instantly, automate repeat tasks, and never worry about privacy or vendor lock. Built for speed, simplicity, and modern work.
+      </p>
+      <div className="w-full flex justify-center mb-6">
+        <div className="w-full max-w-6xl rounded-2xl bg-card border border-border shadow-md py-10 px-4 md:px-12">
+          <div className="grid gap-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+            {FEATURES.map((f, i) => (
+              <div
+                key={i}
+                className="flex flex-col items-center text-center gap-3 p-6 rounded-xl bg-background/70"
+              >
+                <span className="text-primary">{f.icon}</span>
+                <h3 className="font-semibold text-lg">{f.title}</h3>
+                <p className="text-muted-foreground text-sm">{f.desc}</p>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </Section>
   );
