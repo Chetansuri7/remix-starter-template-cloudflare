@@ -50,9 +50,6 @@ export function Footer() {
             <p className="text-sm text-muted-foreground max-w-xs">
               Sparking creative thought and exploring new possibilities with intelligent conversation.
             </p>
-            <p className="text-xs text-muted-foreground">
-              © {currentYear} KriviLak AI
-            </p>
             <div className="flex space-x-2 pt-2">
               <Button variant="ghost" size="icon" asChild>
                 <a href="https://github.com/" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
@@ -96,19 +93,19 @@ export function Footer() {
                   <Link to="/" className="text-muted-foreground hover:text-primary">Home</Link>
                 </li>
                 <li>
-                  <Link to="/research" className="text-muted-foreground hover:text-primary">Research</Link>
+                  <Link to="/#research" className="text-muted-foreground hover:text-primary">Research</Link>
                 </li>
                 <li>
-                  <Link to="/models" className="text-muted-foreground hover:text-primary">Models</Link>
+                  <Link to="/#models" className="text-muted-foreground hover:text-primary">Models</Link>
                 </li>
                 <li>
-                  <Link to="/pricing" className="text-muted-foreground hover:text-primary">Pricing</Link>
+                  <Link to="/#pricing" className="text-muted-foreground hover:text-primary">Pricing</Link>
                 </li>
                 <li>
-                  <Link to="/faq" className="text-muted-foreground hover:text-primary">FAQ</Link>
+                  <Link to="/#faq" className="text-muted-foreground hover:text-primary">FAQ</Link>
                 </li>
                 <li>
-                  <Link to="/chat" className="text-muted-foreground hover:text-primary">Chat</Link>
+                  <Link to="/#chat" className="text-muted-foreground hover:text-primary">Chat</Link>
                 </li>
               </ul>
             </div>
@@ -126,7 +123,7 @@ export function Footer() {
                   <span className="text-muted-foreground opacity-60 cursor-not-allowed" title="Coming soon">Fellows</span>
                 </li>
                 <li>
-                  <Link to="/feedback" className="text-muted-foreground hover:text-primary">Feedback</Link>
+                  <span className="text-muted-foreground opacity-60 cursor-not-allowed" title="Coming soon">Feedback</span>
                 </li>
                 <li>
                   <span className="text-muted-foreground opacity-60 cursor-not-allowed" title="Coming soon">Media inquiries</span>
@@ -151,10 +148,15 @@ export function Footer() {
           </div>
         </div>
         {/* Bottom quote and copyright */}
-        <div className="mt-8 pt-6 border-t border-border/40 text-center">
-          <span className="text-sm text-muted-foreground italic block">
-            “ Less structure, more intelligence. ”
-          </span>
+        <div className="mt-8 pt-6 border-t border-border/40">
+          <div className="max-w-6xl mx-auto px-6 md:px-8 flex flex-col md:flex-row md:justify-between md:items-center text-center md:text-left">
+            <span className="text-sm text-muted-foreground italic block">
+              “ Less structure, more intelligence. ”
+            </span>
+            <span className="text-xs text-muted-foreground mt-2 md:mt-0 md:text-right block">
+              © 2025 KriviLak AI. All rights reserved.
+            </span>
+          </div>
         </div>
       </div>
     </footer>

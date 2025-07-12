@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { Section } from "../shared/Section";
+import { AI_CHAT_URL } from "../../lib/constants";
 
 function IconZap() {
   return (
@@ -78,7 +79,12 @@ export function Hero() {
             <TrustBadge icon={<IconShield />} label="Private Data" />
           </div>
           <div className="flex flex-col md:flex-row gap-4 w-full max-w-md">
-            <a href="#cta" className="flex-1">
+            <a
+              href={AI_CHAT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1"
+            >
               <Button size="lg" className="w-full">
                 Get Started
               </Button>

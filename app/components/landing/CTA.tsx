@@ -1,6 +1,7 @@
 import React from "react";
 import { Section } from "../shared/Section";
 import { Button } from "../ui/button";
+import { AI_CHAT_URL } from "../../lib/constants";
 
 export function CTA() {
   return (
@@ -18,7 +19,7 @@ export function CTA() {
             Sign up once. No more switching accounts or losing context. Get started in less than 60 seconds with total privacy.
           </p>
           <Button asChild size="lg" className="px-10 py-5 text-lg">
-            <a href="https://chat.krivilak.com" target="_blank" rel="noopener noreferrer">Get Started Free</a>
+            <a href={AI_CHAT_URL} target="_blank" rel="noopener noreferrer">Get Started Free</a>
           </Button>
         </div>
       </div>

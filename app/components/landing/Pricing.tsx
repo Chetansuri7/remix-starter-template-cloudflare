@@ -1,47 +1,7 @@
 import React from "react";
 import { Section } from "../shared/Section";
 import { Button } from "../ui/button";
-
-const PLANS = [
-  {
-    name: "Starter",
-    price: "Free",
-    description: "Perfect to try out KriviLak AI and basic AI chat.",
-    benefits: [
-      "Multi-provider chat",
-      "Basic message history",
-      "Community access",
-    ],
-    cta: "Join Free",
-    featured: false,
-  },
-  {
-    name: "Pro",
-    price: "$10/mo",
-    description: "Advanced capabilities for heavy users.",
-    benefits: [
-      "Everything in Starter",
-      "Unlimited provider switching",
-      "Early access to new features",
-      "Priority support",
-    ],
-    cta: "Upgrade to Pro",
-    featured: true,
-  },
-  {
-    name: "Pro Plus",
-    price: "$30/mo",
-    description: "For teams and power users needing more.",
-    benefits: [
-      "Everything in Pro",
-      "Team collaboration",
-      "Dedicated onboarding",
-      "Highest limits & priority",
-    ],
-    cta: "Go Pro Plus",
-    featured: false,
-  },
-];
+import { AI_CHAT_URL } from "../../lib/constants";
 
 export function Pricing() {
   // Updated, detailed, compact pricing plans based on user content.
@@ -103,7 +63,7 @@ export function Pricing() {
         Choose the plan that's right for you. Upgrade or downgrade anytime.
       </p>
       <div className="w-full flex justify-center">
-        <div className="w-full max-w-6xl rounded-2xl bg-card border border-border shadow-md py-10 px-4 md:px-12">
+        <div className="w-full max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
             {PLANS.map((plan, idx) => (
               <div
@@ -118,11 +78,16 @@ export function Pricing() {
                     {plan.name}
                   </span>
                   <span className="text-3xl font-extrabold mb-2">{plan.price}</span>
-                  <span className="text-muted-foreground text-sm mb-2 text-center">
+                  <span className="text-muted-foreground text-base mb-2 text-center">
                     {plan.description}
                   </span>
                 </div>
-                <ul className="my-3 mb-6 text-sm space-y-2 w-full">
+                <Button asChild size="lg" className="w-full">
+                  <a href={AI_CHAT_URL} target="_blank" rel="noopener noreferrer">
+                    {plan.cta}
+                  </a>
+                </Button>
+                <ul className="my-3 mb-6 text-base space-y-2 w-full pt-4">
                   {plan.details.map((point, i) => (
                     <li key={i} className="flex items-center gap-2">
                       <span className="text-green-500 font-semibold">✓</span>
@@ -130,7 +95,6 @@ export function Pricing() {
                     </li>
                   ))}
                 </ul>
-                <Button size="lg" className="w-full mt-auto">{plan.cta}</Button>
               </div>
             ))}
           </div>
