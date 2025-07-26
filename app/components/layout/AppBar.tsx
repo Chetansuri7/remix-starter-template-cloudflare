@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Button } from "~/components/ui/button";
+import { ModernButton } from "~/components/ui/modern-button";
+import { ThemeToggle } from "~/components/ui/theme-toggle";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { AI_CHAT_URL } from "~/lib/constants";
 import { useAppBarContext } from "~/contexts/AppBarContext";
@@ -40,7 +42,7 @@ export function AppBar() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-50 bg-background/80 backdrop-blur-md shadow-sm">
+      <header className="fixed top-0 left-0 w-full z-50 bg-background/50 backdrop-blur-2xl backdrop-saturate-200 border-b border-border/20">
         <div className="mx-auto flex h-16 items-center justify-between px-4 sm:px-6 md:px-8 lg:px-12 max-w-screen-xl w-full gap-4">
           {/* Brand & Hamburger */}
           <div className="flex items-center flex-shrink-0">
@@ -80,13 +82,14 @@ export function AppBar() {
             ))}
           </nav>
 
-          {/* Login Button */}
-          <div className="flex items-center flex-shrink-0">
-            <Button asChild variant="default" size="lg" className="min-w-[108px]">
+          {/* Theme Toggle & Login Button */}
+          <div className="flex items-center gap-3 flex-shrink-0">
+            <ThemeToggle />
+            <ModernButton asChild variant="default" size="lg" className="min-w-[108px]" glow>
               <a href={AI_CHAT_URL} target="_blank" rel="noopener noreferrer">
                 Log in
               </a>
-            </Button>
+            </ModernButton>
           </div>
         </div>
       </header>
@@ -95,7 +98,7 @@ export function AppBar() {
 
       {/* Overlay for Mobile Menu */}
       <div
-        className={`fixed inset-0 z-[60] bg-black/50 transition-opacity duration-300 ease-in-out ${
+        className={`fixed inset-0 z-[60] bg-overlay transition-opacity duration-300 ease-in-out ${
           mobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -109,7 +112,7 @@ export function AppBar() {
       {/* Mobile Slide-over Menu */}
       <nav
         id="mobile-menu"
-        className={`fixed top-0 left-0 h-full w-64 bg-background z-[70] p-6 shadow-xl flex flex-col gap-4 transform transition-transform duration-300 ease-in-out border-r border-border ${
+        className={`fixed top-0 left-0 h-full w-64 bg-background/80 backdrop-blur-xl backdrop-saturate-150 z-[70] p-6 shadow-2xl flex flex-col gap-4 transform transition-transform duration-300 ease-in-out border-r border-border/30 ${
           mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
         onClick={(e) => e.stopPropagation()} // Prevent clicks inside from closing menu
@@ -140,11 +143,11 @@ export function AppBar() {
           ))}
         </div>
         <div className="mt-auto pt-4">
-          <Button asChild variant="default" className="w-full" size="lg">
+          <ModernButton asChild variant="default" className="w-full" size="lg" glow>
             <a href={AI_CHAT_URL} target="_blank" rel="noopener noreferrer">
               Log in
             </a>
-          </Button>
+          </ModernButton>
         </div>
       </nav>
     </>

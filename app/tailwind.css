@@ -1,155 +1,338 @@
 
 
-@tailwind base;  
-@tailwind components;  
-@tailwind utilities;  
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Optional: Minimal dark mode hint for browser UI */  
-@media (prefers-color-scheme: dark) {  
-  :root {  
-    color-scheme: dark;  
-  }  
-}  
-
-@layer base {  
+/* Optional: Minimal dark mode hint for browser UI */
+@media (prefers-color-scheme: dark) {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 217.2414 32.5843% 17.4510%;
+    color-scheme: dark;
+  }
+}
+
+/* Sonner toast styles */
+[data-sonner-toaster] {
+  z-index: 9999 !important;
+}
+
+[data-sonner-toast] {
+  background: hsl(var(--background)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+@layer base {
+  :root {
+    --background: 204.0000 12.1951% 91.9608%;
+    --foreground: 0 0% 20%;
     --card: 0 0% 100%;
-    --card-foreground: 217.2414 32.5843% 17.4510%;
+    --card-foreground: 0 0% 20%;
     --popover: 0 0% 100%;
-    --popover-foreground: 217.2414 32.5843% 17.4510%;
-    --primary: 13.8947 82.6087% 54.9020%;
+    --popover-foreground: 0 0% 20%;
+    --primary: 13.2143 73.0435% 54.9020%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 216.7442 58.9041% 42.9412%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 220.0000 14.2857% 95.8824%;
+    --secondary: 220.0000 14.2857% 95.8824%;
+    --secondary-foreground: 215 13.7931% 34.1176%;
+    --muted: 210 20.0000% 98.0392%;
     --muted-foreground: 220 8.9362% 46.0784%;
-    --accent: 226.4516 100% 93.9216%;
-    --accent-foreground: 216.9231 19.1176% 26.6667%;
+    --accent: 207.6923 46.4286% 89.0196%;
+    --accent-foreground: 224.4444 64.2857% 32.9412%;
     --destructive: 0 84.2365% 60.1961%;
     --destructive-foreground: 0 0% 100%;
-    --border: 216.0000 12.1951% 83.9216%;
-    --input: 216.0000 12.1951% 83.9216%;
-    --ring: 238.7324 83.5294% 66.6667%;
-    --chart-1: 238.7324 83.5294% 66.6667%;
-    --chart-2: 243.3962 75.3555% 58.6275%;
-    --chart-3: 244.5205 57.9365% 50.5882%;
-    --chart-4: 243.6522 54.5024% 41.3725%;
-    --chart-5: 242.1687 47.4286% 34.3137%;
-    --sidebar: 220.0000 14.2857% 95.8824%;
-    --sidebar-foreground: 217.2414 32.5843% 17.4510%;
-    --sidebar-primary: 238.7324 83.5294% 66.6667%;
+    --border: 210 9.3750% 87.4510%;
+    --input: 220 15.7895% 96.2745%;
+    --ring: 13.2143 73.0435% 54.9020%;
+    --chart-1: 210 37.5000% 65.4902%;
+    --chart-2: 12.9032 73.2283% 75.0980%;
+    --chart-3: 213.1579 29.9213% 50.1961%;
+    --chart-4: 216.9231 35.7798% 42.7451%;
+    --chart-5: 221.0127 43.6464% 35.4902%;
+    --sidebar: 216 7.9365% 87.6471%;
+    --sidebar-foreground: 0 0% 20%;
+    --sidebar-primary: 13.2143 73.0435% 54.9020%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 226.4516 100% 93.9216%;
-    --sidebar-accent-foreground: 216.9231 19.1176% 26.6667%;
-    --sidebar-border: 216.0000 12.1951% 83.9216%;
-    --sidebar-ring: 238.7324 83.5294% 66.6667%;
+    --sidebar-accent: 207.6923 46.4286% 89.0196%;
+    --sidebar-accent-foreground: 224.4444 64.2857% 32.9412%;
+    --sidebar-border: 220 13.0435% 90.9804%;
+    --sidebar-ring: 13.2143 73.0435% 54.9020%;
     --font-sans: Inter, sans-serif;
-    --font-serif: Merriweather, serif;
+    --font-serif: Source Serif 4, serif;
     --font-mono: JetBrains Mono, monospace;
-    --radius: 0.5rem;
-    --shadow-2xs: 0px 4px 8px -1px hsl(0 0% 0% / 0.05);
-    --shadow-xs: 0px 4px 8px -1px hsl(0 0% 0% / 0.05);
-    --shadow-sm: 0px 4px 8px -1px hsl(0 0% 0% / 0.10), 0px 1px 2px -2px hsl(0 0% 0% / 0.10);
-    --shadow: 0px 4px 8px -1px hsl(0 0% 0% / 0.10), 0px 1px 2px -2px hsl(0 0% 0% / 0.10);
-    --shadow-md: 0px 4px 8px -1px hsl(0 0% 0% / 0.10), 0px 2px 4px -2px hsl(0 0% 0% / 0.10);
-    --shadow-lg: 0px 4px 8px -1px hsl(0 0% 0% / 0.10), 0px 4px 6px -2px hsl(0 0% 0% / 0.10);
-    --shadow-xl: 0px 4px 8px -1px hsl(0 0% 0% / 0.10), 0px 8px 10px -2px hsl(0 0% 0% / 0.10);
-    --shadow-2xl: 0px 4px 8px -1px hsl(0 0% 0% / 0.25);
+    --radius: 0.75rem;
+    --shadow-2xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 1px 2px -1px hsl(0 0% 0% / 0.10);
+    --shadow: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 1px 2px -1px hsl(0 0% 0% / 0.10);
+    --shadow-md: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 2px 4px -1px hsl(0 0% 0% / 0.10);
+    --shadow-lg: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 4px 6px -1px hsl(0 0% 0% / 0.10);
+    --shadow-xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 8px 10px -1px hsl(0 0% 0% / 0.10);
+    --shadow-2xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.25);
+    --tracking-normal: 0em;
+    --spacing: 0.25rem;
+    /* Additional common UI tokens */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 20%;
+    --info: 200 100% 50%;
+    --info-foreground: 0 0% 100%;
+    --disabled: 210 16% 93%;
+    --disabled-foreground: 220 8.9362% 46.0784%;
+    --link: 220 90% 56%;
+    --link-foreground: 0 0% 100%;
+    --overlay: 0 0% 0% / 0.8;
+    --chatinput-bg: 0 0% 98%;
+    --userbubble-bg: 0 0% 98%;
   }
 
   .dark {
-    --background: 222.2222 47.3684% 11.1765%;
-    --foreground: 214.2857 31.8182% 91.3725%;
-    --card: 217.2414 32.5843% 17.4510%;
-    --card-foreground: 214.2857 31.8182% 91.3725%;
-    --popover: 217.2414 32.5843% 17.4510%;
-    --popover-foreground: 214.2857 31.8182% 91.3725%;
-    --primary: 0 84.5238% 67.0588%;
-    --primary-foreground: 222.2222 47.3684% 11.1765%;
-    --secondary: 217.7778 23.0769% 22.9412%;
-    --secondary-foreground: 216.0000 12.1951% 83.9216%;
-    --muted: 217.2414 32.5843% 17.4510%;
-    --muted-foreground: 217.8947 10.6145% 64.9020%;
-    --accent: 216.9231 19.1176% 26.6667%;
-    --accent-foreground: 216.0000 12.1951% 83.9216%;
+    --background: 219.1304 29.1139% 15.4902%;
+    --foreground: 0 0% 89.8039%;
+    --card: 223.6364 20.7547% 20.7843%;
+    --card-foreground: 0 0% 89.8039%;
+    --popover: 223.3333 19.1489% 18.4314%;
+    --popover-foreground: 0 0% 89.8039%;
+    --primary: 13.2143 73.0435% 54.9020%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 19.2308% 20.3922%;
+    --secondary-foreground: 0 0% 89.8039%;
+    --muted: 222 19.2308% 20.3922%;
+    --muted-foreground: 0 0% 63.9216%;
+    --accent: 223.6364 34.3750% 25.0980%;
+    --accent-foreground: 213.3333 96.9231% 87.2549%;
     --destructive: 0 84.2365% 60.1961%;
-    --destructive-foreground: 222.2222 47.3684% 11.1765%;
-    --border: 215 13.7931% 34.1176%;
-    --input: 215 13.7931% 34.1176%;
-    --ring: 234.4538 89.4737% 73.9216%;
-    --chart-1: 234.4538 89.4737% 73.9216%;
-    --chart-2: 238.7324 83.5294% 66.6667%;
-    --chart-3: 243.3962 75.3555% 58.6275%;
-    --chart-4: 244.5205 57.9365% 50.5882%;
-    --chart-5: 243.6522 54.5024% 41.3725%;
-    --sidebar: 217.2414 32.5843% 17.4510%;
-    --sidebar-foreground: 214.2857 31.8182% 91.3725%;
-    --sidebar-primary: 234.4538 89.4737% 73.9216%;
-    --sidebar-primary-foreground: 222.2222 47.3684% 11.1765%;
-    --sidebar-accent: 216.9231 19.1176% 26.6667%;
-    --sidebar-accent-foreground: 216.0000 12.1951% 83.9216%;
-    --sidebar-border: 215 13.7931% 34.1176%;
-    --sidebar-ring: 234.4538 89.4737% 73.9216%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 224.3478 15.8621% 28.4314%;
+    --input: 224.3478 15.8621% 28.4314%;
+    --ring: 13.2143 73.0435% 54.9020%;
+    --chart-1: 210 37.5000% 65.4902%;
+    --chart-2: 11.7241 63.5036% 73.1373%;
+    --chart-3: 213.1579 29.9213% 50.1961%;
+    --chart-4: 216.9231 35.7798% 42.7451%;
+    --chart-5: 221.0127 43.6464% 35.4902%;
+    --sidebar: 222.8571 20.0000% 20.5882%;
+    --sidebar-foreground: 0 0% 89.8039%;
+    --sidebar-primary: 13.2143 73.0435% 54.9020%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 223.6364 34.3750% 25.0980%;
+    --sidebar-accent-foreground: 213.3333 96.9231% 87.2549%;
+    --sidebar-border: 224.3478 15.8621% 28.4314%;
+    --sidebar-ring: 13.2143 73.0435% 54.9020%;
     --font-sans: Inter, sans-serif;
-    --font-serif: Merriweather, serif;
+    --font-serif: Source Serif 4, serif;
     --font-mono: JetBrains Mono, monospace;
-    --radius: 0.5rem;
-    --shadow-2xs: 0px 4px 8px -1px hsl(0 0% 0% / 0.05);
-    --shadow-xs: 0px 4px 8px -1px hsl(0 0% 0% / 0.05);
-    --shadow-sm: 0px 4px 8px -1px hsl(0 0% 0% / 0.10), 0px 1px 2px -2px hsl(0 0% 0% / 0.10);
-    --shadow: 0px 4px 8px -1px hsl(0 0% 0% / 0.10), 0px 1px 2px -2px hsl(0 0% 0% / 0.10);
-    --shadow-md: 0px 4px 8px -1px hsl(0 0% 0% / 0.10), 0px 2px 4px -2px hsl(0 0% 0% / 0.10);
-    --shadow-lg: 0px 4px 8px -1px hsl(0 0% 0% / 0.10), 0px 4px 6px -2px hsl(0 0% 0% / 0.10);
-    --shadow-xl: 0px 4px 8px -1px hsl(0 0% 0% / 0.10), 0px 8px 10px -2px hsl(0 0% 0% / 0.10);
-    --shadow-2xl: 0px 4px 8px -1px hsl(0 0% 0% / 0.25);
+    --radius: 0.75rem;
+    --shadow-2xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0px 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 1px 2px -1px hsl(0 0% 0% / 0.10);
+    --shadow: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 1px 2px -1px hsl(0 0% 0% / 0.10);
+    --shadow-md: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 2px 4px -1px hsl(0 0% 0% / 0.10);
+    --shadow-lg: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 4px 6px -1px hsl(0 0% 0% / 0.10);
+    --shadow-xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.10), 0px 8px 10px -1px hsl(0 0% 0% / 0.10);
+    --shadow-2xl: 0px 1px 3px 0px hsl(0 0% 0% / 0.25);
+    --tracking-normal: 0em;
+    --spacing: 0.25rem;
+    /* Additional common UI tokens */
+    --success: 142 71% 35%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 60%;
+    --warning-foreground: 0 0% 20%;
+    --info: 200 100% 60%;
+    --info-foreground: 0 0% 100%;
+    --disabled: 220 10% 25%;
+    --disabled-foreground: 0 0% 63.9216%;
+    --link: 210 90% 70%;
+    --link-foreground: 0 0% 100%;
+    --overlay: 0 0% 0% / 0.8;
+    --chatinput-bg: 219.1304 29.1139% 15.4902%;
+    --userbubble-bg: 223.6364 20.7547% 20.7843%;
   }
   .theme {  
     --font-sans: Inter, sans-serif;  
     --font-mono: JetBrains Mono, monospace;  
-    --font-serif: Merriweather, serif;  
-    --radius: 0.5rem;  
+    --font-serif: Source Serif 4, serif;  
+    --radius: 0.75rem;  
     --tracking-tighter: calc(var(--tracking-normal) - 0.05em);  
     --tracking-tight: calc(var(--tracking-normal) - 0.025em);  
     --tracking-wide: calc(var(--tracking-normal) + 0.025em);  
     --tracking-wider: calc(var(--tracking-normal) + 0.05em);  
     --tracking-widest: calc(var(--tracking-normal) + 0.1em);  
   }
+  
   body {
     letter-spacing: var(--tracking-normal);  
   }  
+}
 
+html, body {
+  overflow-x: hidden;
+  height: 100%;
+  min-height: 100vh;
+}
+
+body {
+  overflow-y: auto; /* Ensure top-level scrolling is enabled */
 } 
 
-.custom-scrollbar {  
-  scrollbar-width: thin;  
-  scrollbar-color: #000 transparent; /* Black thumb, transparent track (Firefox) */  
-}  
+/* Custom Scrollbar Styles */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--foreground) / 0.3) transparent; /* Theme-based thumb, transparent track (Firefox) */
+}
 
-/* Chrome, Edge, Safari */  
-.custom-scrollbar::-webkit-scrollbar {  
-  width: 12px;                  /* Nice, visible thickness */  
-  background: transparent;      /* No track background */  
-}  
+/* Chrome, Edge, Safari */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 12px;                  /* Nice, visible thickness */
+  background: transparent;      /* No track background */
+}
 
-.custom-scrollbar::-webkit-scrollbar-thumb {  
-  border-radius: 8px;           /* Rounded thumb */  
-  background: #000;             /* Pure black thumb */  
-  border: none;                 /* No border */  
-  min-height: 40px;             /* Not strictly required, but keeps the thumb visible */  
-}  
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 8px;           /* Rounded thumb */
+  background: hsl(var(--foreground) / 0.3); /* Theme-based thumb */
+  border: none;                 /* No border */
+  min-height: 40px;             /* Not strictly required, but keeps the thumb visible */
+}
 
-/* Remove scroll "corner" background */  
-.custom-scrollbar::-webkit-scrollbar-corner {  
-  background: transparent;  
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--foreground) / 0.5); /* Darker on hover */
+}
+
+/* Remove scroll "corner" background */
+.custom-scrollbar::-webkit-scrollbar-corner {
+  background: transparent;
 }  
 
 @layer base {
   * {
-    @apply border-border;  
+    @apply border-border;
   }
+  
   body {
-    @apply bg-background text-foreground;  
-  }  
+    @apply bg-background text-foreground;
+  }
+  
+  /* Modern scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.3);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
+  
+  /* Smooth focus transitions */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary/50 ring-offset-2 ring-offset-background transition-all duration-200;
+  }
+}/* 
+Custom fix for mobile sidebar gray background */
+@media (max-width: 768px) {
+  [data-sidebar="sidebar"][data-mobile="true"] {
+    background-color: hsl(var(--sidebar)) !important;
+  }
+  
+  /* Remove Sheet overlay if it's causing issues */
+  .fixed.inset-0.z-50.bg-black\/80 {
+    background-color: transparent !important;
+  }
+  
+  .sheet-overlay {
+    background-color: transparent !important;
+  }
+}
+
+/* Mobile viewport and keyboard handling */
+@media (max-width: 768px) {
+  /* Support for dynamic viewport height on mobile devices */
+  .mobile-safe-height {
+    height: 100vh;
+    height: 100dvh; /* Use dynamic viewport height when available */
+  }
+  
+  /* Ensure fixed headers stay visible when keyboard is open */
+  .mobile-fixed-header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+    -webkit-transform: translateZ(0); /* Force hardware acceleration on iOS */
+    transform: translateZ(0);
+  }
+  
+  /* Mobile keyboard-safe chat input positioning */
+  .chat-input-fixed {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 8px !important; /* Minimal safe area on sides */
+    right: 8px !important;
+    z-index: 9998 !important;
+    max-width: none !important;
+    width: auto !important;
+    padding: 8px !important;
+    margin: 0 !important;
+    background: hsl(var(--background)) !important;
+    border-top: 1px solid hsl(var(--border)) !important;
+    /* Use viewport height that accounts for keyboard */
+    bottom: env(keyboard-inset-height, 0px) !important;
+    transform: translateZ(0); /* Hardware acceleration */
+  }
+  
+  .chat-input-fixed .max-w-4xl {
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  
+  /* Remove all conflicting spacing on mobile */
+  .chat-input-fixed .mx-auto {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Restrict mobile chat input height */
+  .chat-input-fixed textarea {
+    max-height: 60px !important; /* Approximately 2 lines */
+    resize: none !important;
+  }
+  
+  /* Ensure the input doesn't go behind keyboard by using visual viewport */
+  .chat-input-fixed {
+    bottom: 0 !important;
+    position: fixed !important;
+    /* This positions it relative to the visual viewport, not layout viewport */
+  }
+}
+
+/* iOS specific fixes */
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari specific adjustments */
+  .mobile-fixed-header {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: env(safe-area-inset-top, 0) !important;
+  }
+  
+  /* iOS keyboard handling for chat input */
+  .chat-input-fixed {
+    /* Use safe area insets for iOS */
+    bottom: env(safe-area-inset-bottom, 0) !important;
+    left: max(8px, env(safe-area-inset-left, 8px)) !important;
+    right: max(8px, env(safe-area-inset-right, 8px)) !important;
+    padding-bottom: calc(8px + env(safe-area-inset-bottom, 0)) !important;
+    /* Position above iOS keyboard */
+    position: fixed !important;
+    z-index: 9999 !important;
+  }
 }

@@ -1,17 +1,10 @@
-import React from "react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "~/components/ui/accordion";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "~/components/ui/card";
+import { Card } from "~/components/ui/card";
 
 const faqData = [
   {
@@ -66,31 +59,29 @@ const faqData = [
 
 export function FAQ() {
   return (
-    <div id="faq" className="py-12 px-4 sm:px-6 md:px-10 lg:px-16 flex justify-center">
-      <div className="w-full max-w-6xl rounded-2xl bg-card border border-border shadow-md py-10 px-4 md:px-12 flex justify-center">
-        <Card className="w-full border-none rounded-2xl bg-transparent p-0 shadow-none">
-          <CardHeader className="text-center px-0 pt-0 pb-3">
-            <CardTitle className="text-3xl md:text-4xl font-bold text-foreground">
-              Frequently Asked Questions
-            </CardTitle>
-            <CardDescription className="mt-2 text-base text-muted-foreground">
-              Find answers to common questions about KriviLak AI.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="p-0">
-            <Accordion type="single" collapsible className="w-full">
-              {faqData.map((item) => (
-                <AccordionItem value={item.id} key={item.id} className="border-b-border">
-                  <AccordionTrigger className="text-base font-medium text-left hover:no-underline py-3 text-foreground">
-                    {item.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-base text-muted-foreground whitespace-pre-line leading-relaxed pt-1 pb-3">
-                    {item.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </CardContent>
+    <div id="faq" className="py-20 px-4 sm:px-6 md:px-10 lg:px-16 flex justify-center">
+      <div className="w-full max-w-4xl rounded-2xl bg-card/70 backdrop-blur-xl backdrop-saturate-150 border border-border/20 py-12 px-6 md:px-12">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Find answers to common questions about KriviLak AI.
+          </p>
+        </div>
+        <Card className="w-full border-none rounded-2xl bg-transparent p-0">
+          <Accordion type="single" collapsible className="w-full">
+            {faqData.map((item) => (
+              <AccordionItem value={item.id} key={item.id} className="border-b-border/50">
+                <AccordionTrigger className="text-base font-medium text-left hover:no-underline py-4 text-foreground hover:text-primary transition-colors">
+                  {item.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-sm text-muted-foreground whitespace-pre-line leading-relaxed pt-1 pb-4">
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </Card>
       </div>
     </div>

@@ -1,4 +1,3 @@
-import React from "react";
 import { Section } from "../shared/Section";
 
 const MODELS = [
@@ -44,48 +43,48 @@ export function Models() {
 	return (
 		<Section
 			id="models"
-			className="flex flex-col items-center text-center"
+			className="flex flex-col items-center text-center py-20"
 			style={{ maxWidth: "90rem" }}
 		>
-			<h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
-				Explore Available AI Models
-			</h2>
-			<p className="text-muted-foreground mb-12 text-lg max-w-2xl">
-				Access industry-leading language models—all in one simple interface.
-			</p>
-			<div className="w-full flex justify-center mb-6">
-				<div className="w-full max-w-6xl">
-					<div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
-						{MODELS.map((m) => (
+			<div className="mb-12">
+				<h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+					Explore Available AI Models
+				</h2>
+				<p className="text-muted-foreground text-lg md:text-xl max-w-3xl leading-relaxed">
+					Access industry-leading language models—all in one simple interface.
+				</p>
+			</div>
+			<div className="w-full max-w-6xl">
+				<div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+					{MODELS.map((m) => (
+						<div
+							key={m.family}
+							className="group flex flex-col gap-4 rounded-2xl p-6 bg-card/70 backdrop-blur-xl backdrop-saturate-150 border border-border/20 transition-all duration-300 hover:bg-card/80 hover:scale-[1.02] relative overflow-hidden"
+						>
 							<div
-								key={m.family}
-								className="group flex flex-col items-start gap-5 rounded-2xl p-12 bg-background/95 border border-border/60 shadow-md transition-all duration-300 hover:shadow-lg hover:border-border/80 hover:scale-[1.03] relative overflow-hidden"
-							>
-								<div
-									className={`absolute inset-0 bg-gradient-to-br ${m.color} opacity-20 transition-opacity duration-300 group-hover:opacity-30`}
-								/>
-								<div className="relative z-10 flex items-center gap-4 w-full">
-									<span className="text-primary bg-primary/10 p-3 rounded-xl">
-										{m.icon}
-									</span>
-									<h3 className="font-semibold text-2xl">{m.family}</h3>
+								className={`absolute inset-0 bg-gradient-to-br ${m.color} opacity-10 transition-opacity duration-300 group-hover:opacity-20`}
+							/>
+							<div className="relative z-10 flex items-center gap-3">
+								<div className="w-12 h-12 rounded-xl bg-primary/10 backdrop-blur-sm border border-primary/20 flex items-center justify-center text-primary">
+									{m.icon}
 								</div>
-								<div className="relative z-10 flex flex-wrap gap-3">
-									{m.names.map((name) => (
-										<span
-											key={name}
-											className="rounded-full bg-background/90 text-base px-5 py-2 border border-border/60 font-medium shadow"
-										>
-											{name}
-										</span>
-									))}
-								</div>
+								<h3 className="font-semibold text-xl">{m.family}</h3>
 							</div>
-						))}
-					</div>
+							<div className="relative z-10 flex flex-wrap gap-2">
+								{m.names.map((name) => (
+									<span
+										key={name}
+										className="rounded-full bg-card/80 backdrop-blur-sm text-sm px-3 py-1 border border-border/30 font-medium"
+									>
+										{name}
+									</span>
+								))}
+							</div>
+						</div>
+					))}
 				</div>
 			</div>
-			<div className="text-sm text-muted-foreground mt-4 font-medium">
+			<div className="text-sm text-muted-foreground mt-8 font-medium">
 				...and more models available on the Chat page
 			</div>
 		</Section>
